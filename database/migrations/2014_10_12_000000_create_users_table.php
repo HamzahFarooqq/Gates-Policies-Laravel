@@ -17,7 +17,8 @@ return new class extends Migration
             $table->string('email')->unique();
             // $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->boolean('is_admin')->default(false);
+            // $table->boolean('is_admin')->default(false);
+            $table->integer('is_admin')->default(0);
             // $table->string('role_id');
             // $table->foreign('role_id')->constrained()->onDelete('cascade'); // Foreign key to roles table
             $table->rememberToken();

@@ -21,7 +21,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        // 'is_admin',
+        'is_admin',
         // 'role_id',
         // 'organization_id'
     ];
@@ -57,6 +57,19 @@ class User extends Authenticatable
     public function posts()
     {
         return $this->hasMany(Post::class);
+    }
+
+
+
+
+    public function isAdministrator()
+    {
+        return $this->is_admin === 1;
+    }
+
+    public function isRegular()
+    {
+        return $this->is_admin === 0;
     }
 
 }

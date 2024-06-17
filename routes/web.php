@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 // use App\Http\Controllers\User\TaskController;
 
 use App\Http\Controllers\Admin\TaskController as AdminTaskController;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\User\TaskController as UserTaskController;
 
 /*
@@ -25,7 +26,7 @@ Route::get('/', function () {
 
 
 
-
+// admin role route
 route::group([
 
     'prefix' => 'admin',
@@ -39,7 +40,7 @@ route::group([
 
 
 
-
+// user role route
 route::group([
 
     'prefix' => 'user',
@@ -52,7 +53,17 @@ route::group([
 
 
 
+// Task Policy
 
 route::group(['middleware' => 'auth'], function(){
     route::resource('tasks', \App\Http\Controllers\TaskController::class);
 });
+
+
+
+
+// Official Documentation
+
+// route::put('posts/{post}', [PostController::class, 'update']);
+// route::get('off/posts/{post}', [PostController::class, 'show']);
+

@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('description');
             $table->string('due_date');
             $table->unsignedBigInteger('user_id');
-            $table->foreignId('user_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users');
 
             $table->timestamps();
         });
